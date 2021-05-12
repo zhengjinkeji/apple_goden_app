@@ -5,17 +5,18 @@ App({
   onLaunch: function() {
     const subDomain = wx.getExtConfigSync().subDomain
     const componentAppid = wx.getExtConfigSync().componentAppid
+    
     if (componentAppid) {
       wx.setStorageSync('appid', wx.getAccountInfoSync().miniProgram.appId)
       wx.setStorageSync('componentAppid', componentAppid)
     }
-    if (subDomain) {
-      WXAPI.init(subDomain)
-    } else {
-      WXAPI.init(CONFIG.subDomain)
-      WXAPI.setMerchantId(CONFIG.merchantId)
-    }
-    
+    // if (subDomain) {
+    //   WXAPI.init(subDomain)
+    // } else {
+    //   WXAPI.init(CONFIG.subDomain)
+    //   WXAPI.setMerchantId(CONFIG.merchantId)
+    // }
+    WXAPI.init(wx.getAccountInfoSync().miniProgram.appId)
     const that = this;
     // 检测新版本
     const updateManager = wx.getUpdateManager()
@@ -65,7 +66,7 @@ App({
         wx.hideToast()
       }
     })
-    WXAPI.queryConfigBatch('mallName,WITHDRAW_MIN,ALLOW_SELF_COLLECTION,order_hx_uids,subscribe_ids,share_profile,adminUserIds,goodsDetailSkuShowType,shopMod,needIdCheck,balance_pay_pwd,shipping_address_gps,shipping_address_region_level,shopping_cart_vop_open').then(res => {
+    WXAPI.queryConfigBatch('mallName,WITHDRAW_MIN,ALLOW_SELF_COLLECTION,order_hx_uids,subscribe_ids,share_profile,adminUserIds,goodsDetailSkuShowType,shopMod,needIdCheck,balance_pay_pwd,shipping_address_gps,shipping_address_region_level,shopping_cart_vop_open,switch_charge').then(res => {
       if (res.code == 0) {
         res.data.forEach(config => {
           wx.setStorageSync(config.key, config.value);

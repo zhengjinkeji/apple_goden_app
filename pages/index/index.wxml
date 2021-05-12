@@ -125,7 +125,7 @@
   <view class="space"></view>
   <van-divider custom-class="table-text" wx:if="{{goodsRecommend.length > 0 && activeCategoryId == 0}}"
     contentPosition="center">
-    <image class="table-icon-tuijian" src="../../images/home/recommend.png"></image> 爆品推荐
+    <image class="table-icon-tuijian" src="../../images/home/recommend.png"></image> 促销爆品
   </van-divider>
   <view class="goods-container" wx:if="{{goodsRecommend.length > 0 && activeCategoryId == 0}}">
     <view class="goods-box" wx:for="{{goodsRecommend}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">

@@ -15,21 +15,21 @@
   </view>
 </view>
 <view class='btn-view'>
-  <!-- <form bindsubmit="recharge" report-submit="true">
-    <button class="btn" type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
+  <form bindsubmit="recharge" report-submit="true">
+    <button wx:if="{{switchCharge==1}}" class="btn" type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       充值
     </button>
   </form>
-  <form bindsubmit="payDeposit" report-submit="true">
+  <!-- <form bindsubmit="payDeposit" report-submit="true">
     <button class='btn' type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       押金
     </button>
-  </form> -->
+  </form>
   <form bindsubmit="withdraw" report-submit="true">
     <button class='btn' type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       提现
     </button>
-  </form>
+  </form> -->
 </view>
 <view class="page">
   <view class="page__bd">
